@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* .container {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+} */
+
+body {
+    background: blue;
+}
+
+.glass-tilt {
+    background: #161623;
+    overflow: hidden;
+}
+
+.glass-tilt .row .card {
+    width: 300px;
+    height: 400px;
+    margin: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.glass-tilt .row .card .card-body {
+    color: #fff;
+    font-weight: 600;
+    opacity: 0;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: 0.5s linear;
+}
+
+.glass-tilt .row .card:hover .card-body {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.glass-tilt .row .card .card-body h2 {
+    top: 10px;
+    right: 30px;
+    font-size: 8em;
+    font-weight: 700;
+    opacity: 0.2
+}
+
+
+/* Three dimensional stack */
+
+.three-dim-stack {
+    height: 500px;
+}
+
+.three-dim-stack .row .card {
+    top: calc(var(--i) * 40px);
+    margin: 70px;
+    width: 250px;
+    /* max-width: 250px; */
+    height: 340px;
+    transform: rotate(40deg) skew(-20deg, -10deg) translateX(0);
+    z-index: calc(var(--i) * -1);
+    transition: 0.5s;
+}
+
+.three-dim-stack .row:hover .card {
+    top: 0;
+    transform: rotate(0) skew(0, 0) translateX(calc(var(--i) * 320px));
+}
+
+@media only screen and (max-width: 768px) {
+    .three-dim-stack .row:hover .card {
+        top: 0;
+        transform: rotate(0) skew(0, 0) translateY(calc(var(--i) * 400px + 370px));
+    }
+}
+
+
+/* 3d Flip */
+
+.flip-around {
+    background: linear-gradient(to right, #fdc830, #f37335);
+}
+
+.flip-around .row .card {
+    background: inherit;
+    width: 250px;
+    height: 350px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 0;
+}
+
+.flip-around .row .card .front,
+.flip-around .row .card .back {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.6s linear;
+    backface-visibility: hidden;
+}
+
+.flip-around .row .card .front {
+    transform: perspective(450px) rotateY(0deg);
+}
+
+.flip-around .row .card .front img {
+    height: 100%;
+}
+
+.flip-around .row .card .back {
+    background: #fff;
+    transform: perspective(450px) rotateY(180deg);
+}
+
+.flip-around .row .card:hover .front {
+    transform: perspective(450px) rotateY(-180deg);
+}
+
+.flip-around .row .card:hover .back {
+    transform: perspective(450px) rotateY(0deg);
+}
+
+.flip-around .row .card .back .sm-links a {
+    color: #2c3e50;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.4s linear;
+}
+
+.flip-around .row .card .back .sm-links a:hover {
+    background: #2c3e50;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+}
+
+.clipped-image .row .card {
+    width: 250px;
+    height: 370px;
+}
+
+.clipped-image .row .card .img-container {
+    height: 40%;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    transition: 0.5s;
+}
+
+.clipped-image .row .card .img-container:hover {
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.clipped-image .row .card .img-container:hover ~ .card-body {
+    display: none;
+}
