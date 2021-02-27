@@ -149,6 +149,9 @@ body {
     height: 40px;
 }
 
+
+/* Clipped image cards */
+
 .clipped-image .row .card {
     width: 250px;
     height: 370px;
@@ -168,4 +171,69 @@ body {
 
 .clipped-image .row .card .img-container:hover ~ .card-body {
     display: none;
+}
+
+
+/* Half glass cover cards */
+
+.half-glass-cover .row .card {
+    width: 250px;
+    height: 370px;
+    overflow: hidden;
+}
+
+.half-glass-cover .row .card .face {
+    height: 100%;
+}
+
+.half-glass-cover .row .card .face .num-container {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.half-glass-cover .card .face .num-container .color-bg {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: 0.7s;
+}
+
+.half-glass-cover .card1 .face .num-container .color-bg {
+    background: coral;
+}
+
+.half-glass-cover .card2 .face .num-container .color-bg {
+    background: darkorange;
+}
+
+.half-glass-cover .card3 .face .num-container .color-bg {
+    background: rgb(255, 104, 104);
+}
+
+.half-glass-cover .face .num-container:hover .color-bg {
+    width: 620px;
+    height: 620px;
+    transition: 0.7s;
+}
+
+.half-glass-cover .face .num-container h4 {
+    font-size: 2em;
+    z-index: 5;
+}
+
+.half-glass-cover .face .card-body {
+    z-index: 2;
+}
+
+.half-glass-cover .face .half-glass {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(1px);
+    pointer-events: none;
 }
