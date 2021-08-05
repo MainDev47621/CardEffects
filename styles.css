@@ -7,12 +7,6 @@
     padding: 0;
 }
 
-/* .container {
-    margin-right: 0;
-    margin-left: 0;
-    width: 100%;
-} */
-
 body {
     background: blue;
 }
@@ -67,7 +61,6 @@ body {
     top: calc(var(--i) * 40px);
     margin: 70px;
     width: 250px;
-    /* max-width: 250px; */
     height: 340px;
     transform: rotate(40deg) skew(-20deg, -10deg) translateX(0);
     z-index: calc(var(--i) * -1);
@@ -109,6 +102,8 @@ body {
     overflow: hidden;
     transition: 0.6s linear;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
 }
 
 .flip-around .row .card .front {
