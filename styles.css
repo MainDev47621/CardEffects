@@ -73,9 +73,18 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+    .three-dim-stack .row .card {
+        top: calc(var(--i) * 40px + 40px);
+        transform: rotate(40deg) skew(-20deg, -10deg) translateX(0);
+        width: 184px;
+        height: 250px;
+    }
+
     .three-dim-stack .row:hover .card {
         top: 0;
         transform: rotate(0) skew(0, 0) translateY(calc(var(--i) * 400px + 370px));
+        width: 250px;
+        height: 340px;
     }
 }
 
@@ -177,9 +186,9 @@ body {
     overflow: hidden;
 }
 
-.half-glass-cover .row .card .face {
+/* .half-glass-cover .row .card .face {
     height: 100%;
-}
+} */
 
 .half-glass-cover .row .card .face .num-container {
     border-radius: 50%;
@@ -231,4 +240,71 @@ body {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(1px);
     pointer-events: none;
+}
+
+
+/* Parallax cards */
+
+.parallax {
+    --transition-time: 2.5s;
+    --trans-delay-time: 0.5ss;
+}
+
+.parallax .row .card {
+    width: 250px;
+    height: 370px;
+    overflow: hidden;
+}
+
+.parallax .row .card .face {
+    height: 100%;
+}
+
+.parallax .row .card .face .num-container {
+    top: 0;
+    transition: var(--transition-time);
+}
+
+.parallax .row .card .face .card-body {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: var(--transition-time);
+}
+
+.parallax .row .card:hover .face .num-container {
+    transform: translateY(-100%);
+    transition: var(--transition-time);
+}
+
+.parallax .row .card:hover .face .card-body {
+    opacity: 1;
+    transform: translateY(0);
+    transition: var(--transition-time);
+    transition-delay: var(--trans-delay-time);
+}
+
+.parallax .row .card .face .layer {
+    transition: var(--transition-time);
+}
+
+.parallax .row .card .face .layer1 {
+    background: green;
+    transform: translateY(100%);
+    z-index: 2;
+}
+
+.parallax .row .card:hover .face .layer1 {
+    transform: translateY(-100%);
+    transition: var(--transition-time);
+}
+
+.parallax .row .card .face .layer2 {
+    background: yellow;
+    transform: translateY(200%);
+    z-index: 3;
+}
+
+.parallax .row .card:hover .face .layer2 {
+    transform: translateY(-200%);
+    transition: var(--transition-time);
 }
